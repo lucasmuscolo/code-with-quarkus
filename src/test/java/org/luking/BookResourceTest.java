@@ -40,7 +40,7 @@ public class BookResourceTest {
                 .body("title", is("primer libro"))
                 .body("author", is("Algun X"))
                 .body("yearOfPublication", is(1999))
-                .body("genre", is("erotico"));
+                .body("genre", is("IT"));
     }
 
     @Test
