@@ -42,4 +42,44 @@ public class BookResourceTest {
                 .body("yearOfPublication", is(1999))
                 .body("genre", is("erotico"));
     }
+
+    @Test
+    public void shouldGetSecondBook() {
+        given()
+                .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                .pathParam("id", 2).when()
+                .get("/api/books/{id}").then()
+                .statusCode(200)
+                .body("title", is("segundo libro"))
+                .body("author", is("Otro autor"))
+                .body("yearOfPublication", is(2004))
+                .body("genre", is("ficcion"));
+    }
+
+    @Test
+    public void shouldGetThirdBook() {
+        given()
+                .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                .pathParam("id", 3).when()
+                .get("/api/books/{id}").then()
+                .statusCode(200)
+                .body("title", is("tercer libro"))
+                .body("author", is("George cloney"))
+                .body("yearOfPublication", is(2015))
+                .body("genre", is("Biografia"));
+    }
+
+    @Test
+    public void shouldGetTalosBook() {
+        given()
+                .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                .pathParam("id", 4).when()
+                .get("/api/books/{id}").then()
+                .statusCode(200)
+                .body("title", is("Talos de esparta"))
+                .body("author", is("Valerio Massimo manfredi"))
+                .body("yearOfPublication", is(2000))
+                .body("genre", is("historia"));
+    }
+
 }
